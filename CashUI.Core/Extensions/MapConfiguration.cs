@@ -13,6 +13,7 @@ namespace CashUI.Core.Extensions
             // Mapping Transactions 
 
             CreateMap<UserListDto, User>().ReverseMap();
+            CreateMap<UserEditDto, User>().ReverseMap();
         }
     }
 }

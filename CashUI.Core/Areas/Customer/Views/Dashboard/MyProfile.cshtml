@@ -1,0 +1,29 @@
+﻿@model UserEditDto
+@{
+    ViewData["Title"] = "MyProfile";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>My Profile</h1>
+<br />
+<form method="post">
+    <input asp-for="Id" class="form-control" type="hidden" placeholder="Full Name" />
+    <span>Full Name</span>
+    <input asp-for="FullName" type="text" class="form-control" placeholder="Full Name" />
+    <br />
+    <span>User Name</span>
+    <input asp-for="UserName" type="text" class="form-control" readonly />
+    <br />
+    <span>Password</span>
+    <input asp-for="Password" type="text" class="form-control" placeholder="Password" />
+    <br />
+    <input type="submit" class="btn btn-info" value="Save Changes" />
+    <br />
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Success"]
+        </div>
+    }
+</form>
+
