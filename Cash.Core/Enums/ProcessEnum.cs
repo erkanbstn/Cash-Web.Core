@@ -2,7 +2,7 @@
 {
     public enum ProcessEnum
     {
-        Havale = 1,
+        Transfer = 1,
         Eft = 2,
     }
 }

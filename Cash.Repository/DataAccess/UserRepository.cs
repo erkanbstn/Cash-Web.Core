@@ -1,8 +1,8 @@
 ﻿using Cash.Core.Models;
-using Cash.Repository.DataAccess;
+using Cash.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace Cash.Repository.Interfaces
+namespace Cash.Repository.DataAccess
 {
     public class UserRepository : ModelRepository<User>, IUserRepository
     {

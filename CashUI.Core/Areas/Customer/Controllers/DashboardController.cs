@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Cash.Core.Models;
 using Cash.Dto.Dtos.AccountDto;
+using Cash.Dto.Dtos.ProcessDto;
 using Cash.Dto.Dtos.UserDto;
 using Cash.Service.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -15,10 +16,14 @@ namespace CashUI.Core.Areas.Admin.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IUserService _userService;
-        public DashboardController(IMapper mapper, IUserService userService)
+        private readonly IAccountService _accountService;
+        private readonly IProcessService _processService;
+        public DashboardController(IMapper mapper, IUserService userService, IAccountService accountService, IProcessService processService)
         {
             _mapper = mapper;
             _userService = userService;
+            _accountService = accountService;
+            _processService = processService;
         }
 
         public async Task<IActionResult> MyProfile()
@@ -37,8 +42,22 @@ namespace CashUI.Core.Areas.Admin.Controllers
         }
         public async Task<IActionResult> MyAccount()
         {
-            //var accountList = _mapper.Map<AccountListDto>(await _);
-            return View();
+            var user = await _userService.FindByUserNameAsync(User.Identity.Name);
+            var accountList = _mapper.Map<List<AccountListDto>>(await _accountService.ToListByFilterAsync(x => x.UserId == user.Id));
+            return View(accountList);
         }
+        public async Task<IActionResult> MySendProcess()
+        {
+            var user = await _userService.FindByUserNameAsync(User.Identity.Name);
+            var processList = _mapper.Map<List<ProcessListDto>>(await _processService.GetListWithAccountBySenderAsync(user.Id));
+            return View(processList);
+        }
+        public async Task<IActionResult> MyReceiveProcess()
+        {
+            var user = await _userService.FindByUserNameAsync(User.Identity.Name);
+            var processList = _mapper.Map<List<ProcessListDto>>(await _processService.GetListWithAccountByReceiverAsync(user.Id));
+            return View(processList);
+        }
+
     }
 }

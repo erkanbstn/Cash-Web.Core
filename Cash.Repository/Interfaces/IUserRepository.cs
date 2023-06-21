@@ -1,7 +1,6 @@
 ﻿using Cash.Core.Models;
-using Cash.Repository.Interfaces;
 
-namespace Cash.Repository.DataAccess
+namespace Cash.Repository.Interfaces
 {
     public interface IUserRepository : IModelRepository<User>
     {

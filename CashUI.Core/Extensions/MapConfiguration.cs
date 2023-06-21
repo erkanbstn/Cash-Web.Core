@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Cash.Core.Models;
+using Cash.Dto.Dtos.AccountDto;
+using Cash.Dto.Dtos.ProcessDto;
 using Cash.Dto.Dtos.UserDto;
 
 namespace CashUI.Core.Extensions
@@ -14,6 +16,10 @@ namespace CashUI.Core.Extensions
 
             CreateMap<UserListDto, User>().ReverseMap();
             CreateMap<UserEditDto, User>().ReverseMap();
+
+            CreateMap<AccountListDto, Account>().ReverseMap();
+
+            CreateMap<ProcessListDto, Process>().ReverseMap();
         }
     }
 }
