@@ -1,0 +1,14 @@
+﻿@model AccountAddDto
+@{
+    ViewData["Title"] = "NewAccount";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>New Account</h1>
+<br />
+<form method="post">
+    <span>Bank</span>
+    <input asp-for="BankId" type="text" class="form-control" placeholder="Full Name" />
+    <br />
+    <input type="submit" class="form-control" value="Save Changes" />
+</form>

@@ -27,5 +27,9 @@ namespace CashUI.Core.Areas.Customer.Controllers
             var accountList = _mapper.Map<List<AccountListDto>>(await _accountService.GetAccountsWithBanksByUserAsync(user.Id));
             return View(accountList);
         }
+        public IActionResult NewAccount()
+        {
+            return View();
+        }
     }
 }

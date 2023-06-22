@@ -33,5 +33,9 @@ namespace CashUI.Core.Areas.Customer.Controllers
             var processList = _mapper.Map<List<ProcessListDto>>(await _processService.GetListWithAccountByReceiverAsync(user.Id));
             return View(processList);
         }
+        public IActionResult CreateProcess()
+        {
+            return View();
+        }
     }
 }
