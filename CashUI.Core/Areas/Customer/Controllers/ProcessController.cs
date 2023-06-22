@@ -38,7 +38,6 @@ namespace CashUI.Core.Areas.Customer.Controllers
         }
         public async Task<IActionResult> CreateProcess()
         {
-
             return View();
         }
         [HttpPost]

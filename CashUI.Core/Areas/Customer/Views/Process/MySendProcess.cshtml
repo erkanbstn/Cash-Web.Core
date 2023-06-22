@@ -22,6 +22,7 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Amount</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Transaction Date</th>
+                                    @*<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Action</th>*@
                                     @*<th class="text-secondary opacity-7"></th>*@
                                 </tr>
                             </thead>
@@ -54,8 +55,8 @@
                                         <td class="align-middle text-center">
                                             <span class="text-secondary text-xs font-weight-bold">@Convert.ToDateTime(Pro.CreatedAt).ToString("dd/MM/yyyy")</span>
                                         </td>
-                                        @* <td class="align-middle">
-                                    <a asp-controller="Dashboard" asp-area="Customer" asp-action="MyAccountTransactionDetail" asp-route-id="@Pro.Id" class="text-secondary font-weight-bold text-xs">Account Transaction Detail</a>
+                                        @*<td class="align-middle">
+                                    <a href="~/Customer/Process/CreateProcess/@Pro.ReceiverId" class="text-secondary font-weight-bold text-xs">Send Again</a>
                                     </td>*@
                                     </tr>
                                 }
