@@ -8,7 +8,10 @@
 <br />
 <form method="post">
     <span>Bank</span>
-    <input asp-for="BankId" type="text" class="form-control" placeholder="Full Name" />
+    @Html.DropDownListFor(x=>x.BankId,(IEnumerable<SelectListItem>)ViewBag.Banks, "Choose Bank", new { @class = "form-control" })
+    <br />
+    <span>Balance</span>
+    <input type="number" asp-for="Balance" class="form-control" />
     <br />
     <input type="submit" class="form-control" value="Save Changes" />
 </form>

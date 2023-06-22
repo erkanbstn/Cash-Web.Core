@@ -10,6 +10,6 @@ namespace Cash.Repository.DataAccess
         public AccountRepository(AppDbContext appDbContext) : base(appDbContext) => _appDbContext = appDbContext;
         public async Task<List<Account>> GetAccountsWithBanksByUserAsync(int userId) => await _appDbContext.Accounts.Where(x => x.UserId == userId).Include(x => x.Bank).ToListAsync();
 
-
+        public async Task<Account> GetAccountsByNoAsync(string no) => await _appDbContext.Accounts.FirstOrDefaultAsync(x => x.No == no);
     }
 }

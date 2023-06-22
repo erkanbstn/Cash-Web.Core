@@ -39,6 +39,11 @@ namespace Cash.Service.Managers
             return await _ProcessRepository.GetByIdAsync(id);
         }
 
+        public async Task<List<Process>> GetListWithAccountAsync(int accountId)
+        {
+            return await _ProcessRepository.GetListWithAccountAsync(accountId);
+        }
+
         public async Task<List<Process>> GetListWithAccountByReceiverAsync(int userId)
         {
             return await _ProcessRepository.GetListWithAccountByReceiverAsync(userId);

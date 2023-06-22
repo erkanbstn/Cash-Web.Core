@@ -6,5 +6,6 @@ namespace Cash.Repository.Interfaces
     {
         public Task<List<Process>> GetListWithAccountByReceiverAsync(int userId);
         public Task<List<Process>> GetListWithAccountBySenderAsync(int userId);
+        public Task<List<Process>> GetListWithAccountAsync(int accountId);
     }
 }

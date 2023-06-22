@@ -18,8 +18,10 @@ namespace CashUI.Core.Extensions
             CreateMap<UserEditDto, User>().ReverseMap();
 
             CreateMap<AccountListDto, Account>().ReverseMap();
+            CreateMap<AccountAddDto, Account>().ReverseMap();
 
             CreateMap<ProcessListDto, Process>().ReverseMap();
+            CreateMap<ProcessAddDto, Process>().ReverseMap();
         }
     }
 }

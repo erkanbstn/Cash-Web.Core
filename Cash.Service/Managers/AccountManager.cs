@@ -8,10 +8,11 @@ namespace Cash.Service.Managers
     public class AccountManager : IAccountService
     {
         private readonly IAccountRepository _accountRepository;
-
+        private readonly Random _random;
         public AccountManager(IAccountRepository accountRepository)
         {
             _accountRepository = accountRepository;
+            _random = new Random();
         }
 
         public async Task ChangeStatusAllAsync(List<Account> t)
@@ -34,6 +35,11 @@ namespace Cash.Service.Managers
             await _accountRepository.DeleteAsync(t);
         }
 
+        public async Task<Account> GetAccountsByNoAsync(string no)
+        {
+            return await _accountRepository.GetAccountsByNoAsync(no);
+        }
+
         public async Task<List<Account>> GetAccountsWithBanksByUserAsync(int userId)
         {
             return await _accountRepository.GetAccountsWithBanksByUserAsync(userId);
@@ -46,6 +52,7 @@ namespace Cash.Service.Managers
 
         public async Task InsertAsync(Account t)
         {
+            t.No = $"{_random.Next(1000, 9999)}{_random.Next(1000, 9999)}{_random.Next(1000, 9999)}{_random.Next(1000, 9999)}";
             await _accountRepository.InsertAsync(t);
         }
 

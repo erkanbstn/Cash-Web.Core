@@ -5,5 +5,6 @@ namespace Cash.Service.Services
     public interface IAccountService : IRepositoryService<Account>
     {
         public Task<List<Account>> GetAccountsWithBanksByUserAsync(int userId);
+        public Task<Account> GetAccountsByNoAsync(string no);
     }
 }

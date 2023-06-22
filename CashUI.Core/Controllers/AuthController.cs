@@ -44,7 +44,7 @@ namespace CashUI.Core.Controllers
         public async Task<IActionResult> SignIn(UserLoginDto userLoginDto)
         {
             await HttpContext.SignInAsync(await _userService.SignInWithClaimAsync(new() { UserName = userLoginDto.UserName, Password = userLoginDto.Password }));
-            return Redirect("~/Customer/Dashboard/MyProfile");
+            return Redirect("~/Customer/Profile/Index");
         }
 
         // GET Sign Up Page

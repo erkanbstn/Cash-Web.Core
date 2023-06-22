@@ -1,17 +1,15 @@
 ﻿@model List<ProcessListDto>
-
 @{
-    ViewData["Title"] = "MyReceiveProcess";
+    ViewData["Title"] = "MyAccountTransactionDetail";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
 
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <h6>My Receive Process</h6>
+                    <h6>My Account Transaction Detail</h6>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
@@ -19,8 +17,9 @@
                             <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Type</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Sender</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">No</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Transaction Type</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Amount</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Transaction Date</th>
                                     @*<th class="text-secondary opacity-7"></th>*@
@@ -41,14 +40,36 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
-                                            <p class="text-xs font-weight-bold mb-0">@Pro.SenderPrc.No</p>
-                                            @*<p class="text-xs text-secondary mb-0">Organization</p>*@
-                                        </td>
-                                        <td>
-                                            <p class="text-xs font-weight-bold mb-0">@Pro.SenderPrc.User.FullName</p>
-                                            @*<p class="text-xs text-secondary mb-0">Organization</p>*@
-                                        </td>
+                                        @if (Pro.SenderPrc.User.UserName != User.Identity.Name)
+                                        {
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">@Pro.SenderPrc.No</p>
+                                                @*<p class="text-xs text-secondary mb-0">Organization</p>*@
+                                            </td>
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">@Pro.SenderPrc.User.FullName</p>
+                                                @*<p class="text-xs text-secondary mb-0">Organization</p>*@
+                                            </td>
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">Receive</p>
+                                                @*<p class="text-xs text-secondary mb-0">Organization</p>*@
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">@Pro.ReceiverPrc.No</p>
+                                                @*<p class="text-xs text-secondary mb-0">Organization</p>*@
+                                            </td>
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">@Pro.ReceiverPrc.User.FullName</p>
+                                                @*<p class="text-xs text-secondary mb-0">Organization</p>*@
+                                            </td>
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">Send</p>
+                                                @*<p class="text-xs text-secondary mb-0">Organization</p>*@
+                                            </td>
+                                        }
                                         <td class="align-middle text-center text-sm">
                                             <span class="badge badge-sm bg-gradient-success">@Pro.Amount.ToString("0.0")</span>
                                         </td>

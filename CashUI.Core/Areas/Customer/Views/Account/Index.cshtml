@@ -48,14 +48,12 @@
                                             <span class="text-secondary text-xs font-weight-bold">@Convert.ToDateTime(Acc.CreatedAt).ToString("dd/MM/yyyy")</span>
                                         </td>
                                         <td class="align-middle">
-                                            <a asp-controller="Dashboard" asp-area="Customer" asp-action="MyAccountTransactionDetail" asp-route-id="@Acc.Id" class="text-secondary font-weight-bold text-xs">Account Transaction Detail</a>
+                                            <a href="/Customer/Account/MyAccountTransactionDetail/@Acc.Id" class="text-secondary font-weight-bold text-xs">Account Transaction Detail</a>
                                         </td>
                                     </tr>
                                 }
                             </tbody>
                         </table>
-                        <br />
-                        <a asp-action="NewAccount" asp-area="Customer" asp-controller="Account"></a>
                     </div>
                 </div>
             </div>
