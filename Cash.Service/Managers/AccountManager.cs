@@ -34,6 +34,11 @@ namespace Cash.Service.Managers
             await _accountRepository.DeleteAsync(t);
         }
 
+        public async Task<List<Account>> GetAccountsWithBanksByUserAsync(int userId)
+        {
+            return await _accountRepository.GetAccountsWithBanksByUserAsync(userId);
+        }
+
         public async Task<Account> GetByIdAsync(int id)
         {
             return await _accountRepository.GetByIdAsync(id);

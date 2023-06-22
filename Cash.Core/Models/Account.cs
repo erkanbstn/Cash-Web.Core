@@ -9,7 +9,8 @@ namespace Cash.Core.Models
     public class Account : BaseModel
     {
         public string No { get; set; }
-        public string Branch { get; set; }
+        public int BankId { get; set; }
+        public virtual Bank Bank { get; set; }
         public decimal Balance { get; set; }
         public int? UserId { get; set; }
         public virtual User User { get; set; }

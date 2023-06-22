@@ -54,6 +54,9 @@ namespace CashUI.Core.Extensions
 
             services.AddScoped<IProcessRepository, ProcessRepository>();
             services.AddScoped<IProcessService, ProcessManager>();
+
+            services.AddScoped<IBankRepository, BankRepository>();
+            services.AddScoped<IBankService, BankManager>();
         }
 
         // App Dependencies
